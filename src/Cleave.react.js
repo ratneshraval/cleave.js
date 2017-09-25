@@ -187,12 +187,13 @@ var Cleave = CreateReactClass({
             pps = owner.properties,
             charCode = event.which || event.keyCode;
 
-        // hit backspace when last character is delimiter
-        if (charCode === 8 && Util.isDelimiter(pps.result.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            pps.backspace = true;
-        } else {
-            pps.backspace = false;
-        }
+        pps.backspace = false;
+        // // hit backspace when last character is delimiter
+        // if (charCode === 8 && Util.isDelimiter(pps.result.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
+        //     pps.backspace = true;
+        // } else {
+        //     pps.backspace = false;
+        // }
 
         owner.registeredEvents.onKeyDown(event);
     },
@@ -235,9 +236,9 @@ var Cleave = CreateReactClass({
         // case 2: last character is not delimiter which is:
         // 12|34* -> hit backspace -> 1|34*
 
-        if (!pps.numeral && pps.backspace && !Util.isDelimiter(value.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
-            value = Util.headStr(value, value.length - pps.delimiterLength);
-        }
+        // if (!pps.numeral && pps.backspace && !Util.isDelimiter(value.slice(-pps.delimiterLength), pps.delimiter, pps.delimiters)) {
+        //     value = Util.headStr(value, value.length - pps.delimiterLength);
+        // }
 
         // phone formatter
         if (pps.phone) {
